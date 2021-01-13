@@ -8,12 +8,12 @@
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/camelcase,@typescript-eslint/no-explicit-any */
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "FrillWidget",
+  name: 'FrillWidget',
   data: () => ({
-    frillWidget: undefined as any | undefined
+    frillWidget: undefined as FrillWidget | undefined,
   }),
   mounted() {
     this.setupFrillWidget();
@@ -26,26 +26,22 @@ export default defineComponent({
   },
   methods: {
     setupFrillWidget() {
-      (window as any).Frill_Config = {
-        selector: ".frill-container",
-        token: "393da219-be59-47e9-8973-1828b9f0dd0d", // <-- Add Widget ID here
-        position: "fixed",
+      window.Frill_Config = {
+        selector: '.frill-container',
+        token: '393da219-be59-47e9-8973-1828b9f0dd0d', // <-- Add Widget ID here
+        position: 'fixed',
         offset: [0, 10],
         callbacks: {
-          onReady: (frillWidget: any) => {
+          onReady: (frillWidget) => {
             this.frillWidget = frillWidget;
-          }
-        }
+          },
+        },
       };
-      if ("Frill" in window) {
+
+      if ('Frill' in window) {
         this.frillWidget = window.Frill.widget((window as any).Frill_Config);
       }
-    }
-  }
+    },
+  },
 });
 </script>
-<style>
-.frill-component h3 {
-  margin: 40px 0 0;
-}
-</style>

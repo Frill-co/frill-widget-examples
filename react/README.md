@@ -1,4 +1,4 @@
-# Vue Frill Widget Example
+# React Frill Widget Example
 
 ## Project setup
 
