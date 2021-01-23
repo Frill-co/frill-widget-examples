@@ -2,7 +2,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: #2c3e50;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
   margin: 60px auto;
   max-width: 800px;
   text-align: center;
@@ -14,7 +15,6 @@
   border: 0px;
   color: black;
   display: inline-block;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
   padding: 8px 15px;
   position: relative;
