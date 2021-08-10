@@ -1,0 +1,14 @@
+<div id="app">
+  <frill-logo></frill-logo>
+  <h1>Welcome to the Frill Widget Example App</h1>
+  <p>
+    This component contains example code showing of how to dynamically load the Frill JS file and
+    create a widget when it's loaded.
+  </p>
+  <p>
+    <button class="btn" (click)="toggle()">
+      {{ showFrillWidget ? 'Hide widget component' : 'Show widget component'}}
+    </button>
+    <frill-widget *ngIf="showFrillWidget">Widget</frill-widget>
+  </p>
+</div>

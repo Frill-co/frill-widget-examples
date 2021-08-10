@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .frill-container {
+      display: flex;
+      align-items: center;
+      border: 0;
+      padding: 0;
+      outline: 0;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .frill-container svg {
+      width: 20px;
+      height: 20px;
+      margin-left: .25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <button type="button" class="frill-container">
+    Click me
+    <svg class="SVGInline-svg" fill="none" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
+      <path d="m4.5 0-4.5 8.5h3.14v5.5l4.36-8.5h-3z" fill="currentColor"></path>
+    </svg>
+  </button>
+  <script>
+    window.Frill_Config = window.Frill_Config || [];
+    window.Frill_Config.push({
+      key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
+    });
+  </script>
+  <script async src="https://widget.frill.co/v2/widget.js"></script>
+</body>
+
+</html>
