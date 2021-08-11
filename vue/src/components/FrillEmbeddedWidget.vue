@@ -1,7 +1,5 @@
 <template>
-  <button type="button" class="frill-container btn">
-    Click here to show the Widget
-  </button>
+  <div ref="widget" className="frill-embedded" />
 </template>
 
 <script lang="ts">
@@ -30,7 +28,8 @@ export default defineComponent({
   methods: {
     setupFrillWidget() {
       this.config = {
-        key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget key here
+        key: '11153d6c-cf12-4e26-ae28-4cda8848abf7', // <-- Add Widget key here
+        container: this.$refs.widget as HTMLDivElement,
         callbacks: {
           onReady: (frillWidget) => {
             this.widget = frillWidget;

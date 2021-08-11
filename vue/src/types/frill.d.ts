@@ -19,6 +19,7 @@ declare global {
 
   interface FrillConfig {
     key: string;
+    container?: HTMLElement;
     ssoToken?: string;
     callbacks: {
       onReady(frillWidget: FrillWidget): void;

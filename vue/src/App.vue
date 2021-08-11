@@ -1,31 +1,39 @@
 <template>
-  <Logo />
-  <h1>Welcome to the Frill Widget Example App</h1>
-  <p>
-    This component contains example code showing of how to dynamically load the Frill JS file and
-    create a widget when it's loaded.
-  </p>
-  <p>
-    <button class="btn" @click="showFrillWidget = !showFrillWidget">
-      {{ showFrillWidget ? 'Hide widget component' : 'Show widget component' }}
-    </button>
-  </p>
-  <FrillWidget v-if="showFrillWidget" />
+  <div>
+    <div v-if="view === 'popover'">
+      <h1>Popover Widget</h1>
+      <button type="button" class="btn" @click="view = 'embed'">
+        Switch to Embed
+      </button>
+      <br />
+      <br />
+      <FrillWidget />
+    </div>
+    <div v-else>
+      <h1>Embed Widget</h1>
+      <button type="button" class="btn" @click="view = 'popover'">
+        Switch to Popover
+      </button>
+      <br />
+      <br />
+      <FrillEmbeddedWidget />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import FrillWidget from './components/FrillWidget.vue';
-import Logo from '@/components/Logo.vue';
+import FrillEmbeddedWidget from './components/FrillEmbeddedWidget.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    Logo,
     FrillWidget,
+    FrillEmbeddedWidget,
   },
   data: () => ({
-    showFrillWidget: true,
+    view: 'popover',
   }),
 });
 </script>
@@ -52,5 +60,15 @@ export default defineComponent({
   font-size: 1.2rem;
   padding: 8px 15px;
   position: relative;
+}
+
+.frill-embedded {
+  width: 1000px;
+  height: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
 }
 </style>

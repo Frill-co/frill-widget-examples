@@ -26,30 +26,21 @@
       justify-content: center;
     }
 
-    .frill-container {
-      background-color: #efefef;
-      border-radius: 10px;
-      border: 0px;
-      color: black;
-      cursor: pointer;
-      display: inline-block;
-      font-size: 1.2rem;
-      padding: 8px 15px;
-      position: relative;
+    .frill-embedded {
+      width: 1000px;
+      height: 500px;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
     }
   </style>
 </head>
 
 <body>
-  <button type="button" class="frill-container">
-    Click here to show the widget
-  </button>
-  <script>
-    window.Frill_Config = window.Frill_Config || [];
-    window.Frill_Config.push({
-      key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
-    });
-  </script>
+  <!-- Swap our ID for your Widget ID -->
+  <div data-frill-widget="11153d6c-cf12-4e26-ae28-4cda8848abf7" class="frill-embedded"></div>
   <script async src="https://widget.frill.co/v2/widget.js"></script>
 </body>
 

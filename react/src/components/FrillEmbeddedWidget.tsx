@@ -1,11 +1,14 @@
 import React from 'react';
 
-const FrillWidget: React.FC = () => {
+const FrillEmbeddedWidget: React.FC = () => {
+  const widgetRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
     let widget: FrillWidget;
 
     const config: FrillConfig = {
-      key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget key here
+      key: '11153d6c-cf12-4e26-ae28-4cda8848abf7', // <-- Add Widget key here
+      container: widgetRef.current!,
       callbacks: {
         onReady: (frillWidget) => {
           widget = frillWidget;
@@ -27,11 +30,7 @@ const FrillWidget: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <button type='button' className='frill-container btn'>
-      Click here to show the Widget
-    </button>
-  );
+  return <div ref={widgetRef} className="frill-embedded" />;
 };
 
-export default FrillWidget;
+export default FrillEmbeddedWidget;

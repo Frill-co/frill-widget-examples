@@ -20,3 +20,13 @@
   padding: 8px 15px;
   position: relative;
 }
+
+.frill-embedded {
+  width: 1000px;
+  height: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+}
