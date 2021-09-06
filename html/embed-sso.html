@@ -44,6 +44,8 @@
     window.Frill_Config = window.Frill_Config || [];
     window.Frill_Config.push({
       key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
+      // This will tell Frill where to embed the Widget
+      container: document.getElementById('frill-widget'),
       // You will need to generate a Frill User Token (JWT) on your server and add it here.
       // This is NOT the SSO Key from the settings page. See our help docs for more information.
       //  - https://help.frill.co/article/75-adding-the-widget
