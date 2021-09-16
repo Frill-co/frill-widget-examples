@@ -1,8 +1,10 @@
 import React from 'react';
 
 const FrillEmbeddedWidget: React.FC = React.memo(() => {
+  // This is where the widget will be embedded
   const widgetRef = React.useRef<HTMLDivElement>(null);
 
+  // See ./FrillWidget.tsx for a detailed explanation of the hook
   React.useEffect(() => {
     let widget: FrillWidget;
 
@@ -27,7 +29,6 @@ const FrillEmbeddedWidget: React.FC = React.memo(() => {
       widget?.destroy();
       window.Frill_Config = window.Frill_Config.filter((c) => c !== config);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div ref={widgetRef} className="frill-embedded" />;
