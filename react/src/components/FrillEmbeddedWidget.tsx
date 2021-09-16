@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FrillEmbeddedWidget: React.FC = () => {
+const FrillEmbeddedWidget: React.FC = React.memo(() => {
   const widgetRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -31,6 +31,6 @@ const FrillEmbeddedWidget: React.FC = () => {
   }, []);
 
   return <div ref={widgetRef} className="frill-embedded" />;
-};
+});
 
 export default FrillEmbeddedWidget;

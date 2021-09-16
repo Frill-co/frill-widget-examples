@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FrillWidget: React.FC = () => {
+const FrillWidget: React.FC = React.memo(() => {
   React.useEffect(() => {
     let widget: FrillWidget;
 
@@ -28,10 +28,10 @@ const FrillWidget: React.FC = () => {
   }, []);
 
   return (
-    <button type='button' className='frill-container btn'>
+    <button type="button" className="frill-container btn">
       Click here to show the Widget
     </button>
   );
-};
+});
 
 export default FrillWidget;
