@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .notification {
+      background-color: rgb(188, 240, 223);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font: inherit;
+      padding: 16px 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    <button type="button" class="notification">...</button>
+    <!--
+      This example widget is using the CSS Selector Launcher and Popover View so we need to have
+      an element so the widget knows where to render. Because we are going to open the widget
+      manually, this element is empty.
+    -->
+    <div class="frill-container"></div>
+  </div>
+  <script>
+    const notification = document.querySelector('.notification');
+
+    window.Frill_Config = window.Frill_Config || [];
+    window.Frill_Config.push({
+      key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
+      callbacks: {
+        onReady(widget) {
+          // This is called when the Frill Widget is ready to use.
+          // The `widget` object can be used to control the widget, e.g.
+          //   - widget.open();
+          //   - widget.close();
+          //   - widget.toggle();
+          //   - widget.setBadgeCount(2);
+
+          // In this example, we are going to add a click event to our notification bubble
+          // so it can open the widget.
+          notification.addEventListener('click', (e) => {
+            // Stop event propagation
+            e.stopPropagation();
+            // Open the widget
+            widget.open();
+          })
+        },
+        onBadgeCount({
+          count
+        }) {
+          // This function will be called whenever the notification count changes. The count
+          // variable will be the number of NEW (unread) announcements.
+
+          // Let's update our notification to display the number of new notifications
+          notification.innerText = `${count} new announcement${count === 1 ?'' : 's'}`;
+        }
+      }
+    });
+  </script>
+  <script async src="https://widget.frill.co/v2/widget.js"></script>
+</body>
+
+</html>
