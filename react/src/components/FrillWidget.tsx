@@ -41,7 +41,9 @@ const FrillWidget: React.FC = React.memo(() => {
       // We also need to remove our config from the list so it doesn't get initialised.
       // This would only happen if the had component mounted/unmounted before the Frill api
       // had a chance to load.
-      window.Frill_Config = window.Frill_Config.filter((c) => c !== config);
+      if (window.Frill_Config) {
+        window.Frill_Config = window.Frill_Config.filter((c) => c !== config);
+      }
     };
   }, []);
 

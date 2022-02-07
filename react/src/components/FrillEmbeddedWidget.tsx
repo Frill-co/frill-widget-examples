@@ -27,11 +27,13 @@ const FrillEmbeddedWidget: React.FC = React.memo(() => {
 
     return () => {
       widget?.destroy();
-      window.Frill_Config = window.Frill_Config.filter((c) => c !== config);
+      if (window.Frill_Config) {
+        window.Frill_Config = window.Frill_Config.filter((c) => c !== config);
+      }
     };
   }, []);
 
-  return <div ref={widgetRef} className="frill-embedded" />;
+  return <div ref={widgetRef} className='frill-embedded' />;
 });
 
 export default FrillEmbeddedWidget;
