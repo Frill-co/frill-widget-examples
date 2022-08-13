@@ -39,16 +39,11 @@
 
 <body>
   <div class="flex">
-    <button type="button" class="notification">...</button>
-    <!--
-      This example widget is using the CSS Selector Launcher and Popover View so we need to have
-      an element so the widget knows where to render.
-    -->
-    <div class="frill-container"></div>
+    <button type="button" class="frill-container btn">
+      Click here to show the widget
+    </button>
   </div>
   <script>
-    const notification = document.querySelector('.notification');
-
     window.Frill_Config = window.Frill_Config || [];
     window.Frill_Config.push({
       key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
