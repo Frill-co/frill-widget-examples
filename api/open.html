@@ -64,6 +64,12 @@
           // In this example, we are going to open the widget as soon as it's ready
           widget.open();
         },
+        onOpen() {
+          console.log('Widget opened')
+        },
+        onClose() {
+          console.log('Widget closed')
+        }
       }
     });
   </script>
