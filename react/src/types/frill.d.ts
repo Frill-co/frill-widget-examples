@@ -15,14 +15,17 @@ declare global {
     open(): void;
     close(): void;
     destroy(): void;
+    markAsRead(): void;
   }
 
   interface FrillConfig {
     key: string;
     container?: HTMLElement;
+    settings?: any;
     ssoToken?: string;
-    callbacks: {
-      onReady(frillWidget: FrillWidget): void;
+    callbacks?: {
+      onReady?(frillWidget: FrillWidget): void;
+      onBadgeCount?(event: { count: number }): void;
     };
   }
 }

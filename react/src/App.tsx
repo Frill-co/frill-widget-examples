@@ -2,6 +2,7 @@ import React from 'react';
 
 import FrillWidget from './components/FrillWidget';
 import FrillEmbeddedWidget from './components/FrillEmbeddedWidget';
+import FrillNotificationBadge from './components/FrillNotificationBadge';
 
 import './App.css';
 
@@ -18,6 +19,9 @@ const App: React.FC = () => {
         <br />
         <br />
         <FrillWidget />
+        <br />
+        <br />
+        <FrillNotificationBadge />
       </div>
     );
   }
@@ -31,6 +35,9 @@ const App: React.FC = () => {
       <br />
       <br />
       <FrillEmbeddedWidget />
+      <br />
+      <br />
+      <FrillNotificationBadge />
     </div>
   );
 };
