@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .notification {
+      background-color: rgb(188, 240, 223);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font: inherit;
+      padding: 16px 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    Swap our ID for your Widget ID, e.g. https://app.frill.co/embed/widget/{{YOUR_WIDGET_ID}}
+
+    You can authenticate guest users by passing there details as query parameters.
+    The user must have a valid email and can not be associated to an existing user account.
+    This means the email cannot have a login/password, or be an SSO account.
+    For example:
+      ?user=${encodeURIComponent(JSON.stringify({ name: 'Mitch Guest', email: 'mitch+guest@frill.co' }))}
+    Should look like:
+      ?user=%7B%22name%22%3A%22Mitch%20Guest%22%2C%22email%22%3A%22mitch%2Bguest%40frill.co%22%7D
+  -->
+  <iframe src="https://app.frill.co/embed/widget/e0ceb593-2c29-48a6-9d66-78bca8008a4f?user=%7B%22name%22%3A%22Mitch%20Guest%22%2C%22email%22%3A%22mitch%2Bguest%40frill.co%22%7D" sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups allow-forms allow-popups-to-escape-sandbox" style="border: 0px; outline: 0px; width: 680px; height: 460px;"></iframe>
+</body>
+
+</html>
