@@ -25,21 +25,12 @@
       align-items: flex-start;
       justify-content: center;
     }
-
-    .notification {
-      background-color: rgb(188, 240, 223);
-      border: 0;
-      border-radius: 10px;
-      cursor: pointer;
-      font: inherit;
-      padding: 16px 24px;
-    }
   </style>
 </head>
 
 <body>
   <div class="flex">
-    <button type="button" class="notification">...</button>
+    Please wait. This widget is going to open once it loads...
     <!--
       This example widget is using the CSS Selector Launcher and Popover View so we need to have
       an element so the widget knows where to render.
@@ -47,8 +38,6 @@
     <div class="frill-container"></div>
   </div>
   <script>
-    const notification = document.querySelector('.notification');
-
     window.Frill_Config = window.Frill_Config || [];
     window.Frill_Config.push({
       key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget ID here
