@@ -72,6 +72,7 @@
           })
         },
         onBadgeCount({
+          announcements,
           count
         }) {
           // This function will be called whenever the notification count changes. The count
@@ -79,6 +80,10 @@
 
           // Let's update our notification to display the number of new notifications
           notification.innerText = `${count} new announcement${count === 1 ?'' : 's'}`;
+
+          // The event also includes the unread announcements. Each object in the list includes
+          // the announcement idx, slug & published_at properties.
+          // console.log(announcements);
         }
       }
     });

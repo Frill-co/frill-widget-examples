@@ -32,8 +32,11 @@ const FrillNotificationBadge: React.FC = React.memo(() => {
         },
         // This function will be called whenever the notification count changes. The count
         // variable will be the number of NEW (unread) announcements.
-        onBadgeCount: ({ count }) => {
+        onBadgeCount: ({ announcements, count }) => {
           setCount(count);
+          // The event also includes the unread announcements. Each object in the list includes
+          // the announcement idx, slug & published_at properties.
+          // console.log(announcements);
         },
       },
     };

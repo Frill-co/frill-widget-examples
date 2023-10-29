@@ -25,7 +25,10 @@ declare global {
     ssoToken?: string;
     callbacks?: {
       onReady?(frillWidget: FrillWidget): void;
-      onBadgeCount?(event: { count: number }): void;
+      onBadgeCount?(event: {
+        announcements: { idx: string; slug: string; published_at: string }[];
+        count: number;
+      }): void;
     };
   }
 }
