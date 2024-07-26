@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .main {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .notification {
+      background-color: rgb(188, 240, 223);
+      border: 0;
+      border-radius: 10px;
+      font: inherit;
+      padding: 16px 24px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      background-color: #efefef;
+      border-radius: 10px;
+      border: 0px;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <button type="button" class="frill-sidebar btn">
+      Click here to show the widget as a sidebar
+    </button>
+  </div>
+  <script>
+    // This is the default Frill script to load a container.
+    (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
+    // When you initialize the container you can pass in custom settings for each widget
+    window.Frill('container', {
+      key: 'YOUR_SCRIPT_KEY', // <-- Add Script Key here widgets: [{ key: 'YOUR_WIDGET_KEY' , // <-- Add Widget Key here
+      widgets: [{
+        key: 'YOUR_WIDGET_KEY', // <-- Add Widget Key here
+        // Pass a custom settings object to override the default values
+        settings: {
+          launcher: {
+            // Select a new launcher
+            type: 'selector',
+            selector: '.frill-sidebar'
+          },
+          view: {
+            // Change the view type to `sidebar`
+            type: 'sidebar'
+            // Pass additional sidebar settings here...
+          }
+        },
+      }]
+    });
+  </script>
+</body>
+
+</html>

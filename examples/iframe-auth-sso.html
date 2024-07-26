@@ -26,29 +26,28 @@
       justify-content: center;
     }
 
-    .frill-embedded {
-      width: 1000px;
-      height: 500px;
-      max-width: 100%;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 1px solid #f0f0f0;
-      border-radius: 5px;
+    .notification {
+      background-color: rgb(188, 240, 223);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font: inherit;
+      padding: 16px 24px;
     }
   </style>
 </head>
 
 <body>
   <!--
-    Swap our ID for your Widget ID.
+    Swap our ID for your Widget ID, e.g. https://app.frill.co/embed/widget/{{YOUR_WIDGET_ID}}
+
     For SSO you will need to replace SSO_FRILL_TOKEN_FROM_SERVER with a Frill User Token (JWT)
     that you generate on your server.
     This is NOT the SSO Key from the settings page. See our help docs for more information.
-     - https://help.frill.co/article/75-adding-the-widget
-     - https://help.frill.co/article/65-sso-implementation
+    - https://help.frill.co/article/75-adding-the-widget
+    - https://help.frill.co/article/65-sso-implementation
   -->
-  <div data-frill-widget="11153d6c-cf12-4e26-ae28-4cda8848abf7" data-frill-sso="SSO_FRILL_TOKEN_FROM_SERVER" class="frill-embedded"></div>
-  <script async src="https://widget.frill.co/v2/widget.js"></script>
+  <iframe src="https://app.frill.co/embed/widget/YOUR_WIDGET_KEY?ssoToken=SSO_FRILL_TOKEN_FROM_SERVER" sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups allow-forms allow-popups-to-escape-sandbox" style="border: 0px; outline: 0px; width: 680px; height: 460px;"></iframe>
 </body>
 
 </html>

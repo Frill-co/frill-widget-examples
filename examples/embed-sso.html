@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .frill-embedded {
+      width: 1000px;
+      height: 500px;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid #f0f0f0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    Swap our ID for your Widget ID.
+    For SSO you will need to replace SSO_FRILL_TOKEN_FROM_SERVER with a Frill User Token (JWT)
+    that you generate on your server.
+    This is NOT the SSO Key from the settings page. See our help docs for more information.
+     - https://help.frill.co/article/75-adding-the-widget
+     - https://help.frill.co/article/65-sso-implementation
+  -->
+  <div data-frill-widget="11153d6c-cf12-4e26-ae28-4cda8848abf7" class="frill-embedded"></div>
+  <script>
+    // This is the default Frill script to load a container.
+    (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
+    // When you initialize the container you can pass in custom settings for each widget
+    window.Frill('container', {
+      key: 'YOUR_SCRIPT_KEY', // <-- Add Script Key here
+      ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER'
+    });
+  </script>
+</body>
+
+</html>
