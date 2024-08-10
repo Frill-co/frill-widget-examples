@@ -60,6 +60,8 @@ It's possible to directly load (or retrieve) a single Frill Widget. If the Widge
 const widget = await window.Frill('widget', {
   key: 'YOUR_WIDGET_KEY', // <-- Add Widget Key here
 });
+
+// You can now control the widget, e.g. widget.open();
 ```
 
 > [!NOTE]

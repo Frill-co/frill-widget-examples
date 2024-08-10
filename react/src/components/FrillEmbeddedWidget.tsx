@@ -2,13 +2,13 @@ import React from 'react';
 
 const FrillEmbeddedWidget: React.FC = React.memo(() => {
   // This is where the widget will be embedded
-  const widgetRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
-  // See ./FrillWidget.tsx for a detailed explanation of the hook
   React.useEffect(() => {
     const widget = window.Frill('widget', {
       key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
-      container: widgetRef.current!,
+      // Pass the element so it knows where to render the embedded widget
+      container: containerRef.current!,
     });
 
     return () => {
@@ -16,7 +16,7 @@ const FrillEmbeddedWidget: React.FC = React.memo(() => {
     };
   }, []);
 
-  return <div ref={widgetRef} className='frill-embedded' />;
+  return <div ref={containerRef} className='frill-embedded' />;
 });
 
 export default FrillEmbeddedWidget;
