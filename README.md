@@ -1,17 +1,17 @@
-# Frill Widget Examples
+# Frill Widget & Survey Examples
 
-Welcome to the Frill Widget examples repository.
+Welcome to the Frill Widget & Survey examples repository.
 
-This repository contains advanced usage examples for Widgets, including user identification, SSO, iframes, and external control.
+This repository contains advanced usage examples for Widgets & Surveys, including user identification, SSO, iframes, and external control.
 
 View [our examples](./examples) to see what's possible.
 
 ## Getting Started
 
-Widgets should always be loaded with the Widget Script. Get your Widget Script code from the [Your Widgets](https://app.frill.co/settings/company/widget) settings page and place the script before the closing `</body>` tag on your website.
+All Widgets & Surveys should always be loaded with the Frill Script. Get your Frill Script code from the [Widgets](https://app.frill.co/dashboard/widget) or [Surveys](https://app.frill.co/dashboard/survey) page and place the script before the closing `</body>` tag on your website.
 
 > [!NOTE]
-> If you are using a Javascript framework, e.g. React (including NextJS), Vue, Angular, etc. You don't need to do anything special. Load the script tag like you would any other.
+> If you are using a JavaScript framework, e.g. React (including NextJS), Vue, Angular, etc. You don't need to do anything special. Load the script tag like you would any other.
 
 ```html
 <!-- Frill (https://frill.co) -->
@@ -22,25 +22,37 @@ Widgets should always be loaded with the Widget Script. Get your Widget Script c
 <!-- End Frill -->
 ```
 
-## Widget API JS
+## Frill API JS
 
-The Widget API allows you to access, customize, and control any Widget loaded in your script. Using the Widget API is simple once you have a reference to a Widget. To do this, you first need to know the Widget Key, which you can find in the Widgets dashboard or on the edit screen.
+The Frill API allows you to access, customize, and control any Widget or Survey loaded in your script. Using the Frill API is simple once you have a reference to a Widget, or Survey. To do this, you first need to know the **Key**, which you can find in your Frill dashboard or on the edit screen.
 
-Once you have the Widget key, there are two ways to get access to the Widget instance.
+Once you have the **Key**, there are two ways to get access to the instance.
 
-#### Using the Widget Script
+#### Using `onReady` callback
 
-The easiest way to access a Widget is by providing an `onReady` callback in your script configuration. This callback will run once the Widget is ready and will receive the `widget` instance.
+The easiest way to access a Widget or Survey is by providing an `onReady` callback in your script configuration. This callback will run once when ready and will receive the `widget` (or `survey`) instance.
 
-To set this up, include a custom widgets configuration when you load your script, using your Widget Key. The widgets parameter accepts an array if you have multiple Widgets.
+To set this up, include a custom `widgets` or `surveys` configuration when you load your script, using the corresponding key.
 
-Example:
+**Example:**
+
 ```js
 window.Frill('container', {
-  key: 'YOUR_SCRIPT_KEY', // <-- Add Script Key here
+  key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+  surveys: [
+    {
+      key: 'YOUR_SURVEY_KEY', // <-- Add Survey key here
+      callbacks: {
+        onReady(survey) {
+          // This function is called when the Frill Survey is fully loaded and ready for use
+          console.log(survey);
+        },
+      },
+    },
+  ],
   widgets: [
     {
-      key: 'YOUR_WIDGET_KEY', // <-- Add Widget Key here
+      key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
       callbacks: {
         onReady(widget) {
           // This function is called when the Frill Widget is fully loaded and ready for use
@@ -54,17 +66,48 @@ window.Frill('container', {
 
 #### Using the `Frill` API
 
-It's possible to directly load (or retrieve) a single Frill Widget. If the Widget is already loaded, the function will simply return the existing Widget, making it safe to call multiple times.
+It's possible to directly load (or retrieve) a single Frill Widget or Survey. If it's already loaded, the function will simply return the existing instance, making it safe to call multiple times. Using the API to load will ignore all targeting rules.
 
 ```js
 const widget = await window.Frill('widget', {
-  key: 'YOUR_WIDGET_KEY', // <-- Add Widget Key here
+  key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+});
+
+const survey = await window.Frill('survey', {
+  key: 'YOUR_SURVEY_KEY', // <-- Add Survey key here
 });
 
 // You can now control the widget, e.g. widget.open();
 ```
 
 > [!NOTE]
-> This is the recommended approach if you are using a JS framework. Please see our examples for [React](./react), [Vue](./vue) & [Angular](./angular). 
+> This is the recommended approach if you are using a JS framework. Please see our examples for [React](./react), [Vue](./vue) & [Angular](./angular).
 
+### Identifying users
 
+Guest users can be identified at any time using the `Frill` API. Calling the `identify` command will identify the user for all active Widgets & Surveys. It's okay to call before they have been created, all new instances will inherit the current user.
+
+The user email must be valid. Note: Identifying a user will not work if you have SSO enabled.
+
+```js
+window.Frill('identify', { email: 'email@domain.com', name: 'my user'})
+```
+
+If the user logs outs you should unidentify them:
+
+```js
+window.Frill('unidentify');
+```
+
+Using iframes? Check out [our simple example](./examples/iframe-identify-user.html) or [SSO example](./examples/iframe-identify-sso.html) to see how to do it.
+
+#### SSO
+
+Guest user identification will not work if you have SSO enabled. To identify an SSO user you need to pass a valid SSO JWT as part of your config.
+
+```js
+window.Frill('container', {
+  key: 'YOUR_SCRIPT_KEY',
+  ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER'
+});
+```
