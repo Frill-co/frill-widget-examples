@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .notification {
+      background-color: rgb(188, 240, 223);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font: inherit;
+      padding: 16px 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    <button type="button" class="launcher">Toggle widget</button>
+  </div>
+  <script>
+    const launcher = document.querySelector('.launcher');
+    // This is the default Frill script to load a container.
+    (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
+    // When you initialize the container you can pass in custom settings for each widget
+    window.Frill('container', {
+      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      widgets: [{
+        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        callbacks: {
+          onReady(widget) {
+            // This is called when the Frill Widget is ready to use.
+            // The `widget` object can be used to control the widget, e.g.
+            //   - widget.open();
+            //   - widget.close();
+            //   - widget.toggle();
+            //   - widget.setBadgeCount(2);
+
+            // In this example, we are going to add a click event listener to our
+            // launcher button to open/close the widget
+            launcher.addEventListener('click', (e) => {
+              // Stop event propagation
+              e.stopPropagation();
+              // Toggle the widget
+              widget.toggle();
+            })
+          },
+        },
+        // We can pass custom settings to the widget to override the normal behaviour
+        settings: {
+          // Because we are using our own launcher I am going to use the `null` launcher type
+          launcher: {
+            type: 'null',
+          },
+          // For this demo I want the widget to open in a sidebar
+          view: {
+            type: 'sidebar',
+          }
+        }
+      }]
+    });
+  </script>
+</body>
+
+</html>

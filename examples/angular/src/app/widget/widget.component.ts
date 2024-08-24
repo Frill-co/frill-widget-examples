@@ -15,7 +15,7 @@ export class FrillWidgetComponent implements OnInit {
 
   ngAfterContentInit() {
     this.config = {
-      key: 'e0ceb593-2c29-48a6-9d66-78bca8008a4f', // <-- Add Widget key here
+      key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
       callbacks: {
         onReady: (frillWidget) => {
           this.widget = frillWidget;
