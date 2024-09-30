@@ -17,7 +17,10 @@ All Widgets & Surveys should always be loaded with the Frill Script. Get your Fr
 <!-- Frill (https://frill.co) -->
 <script>
   (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
-  window.Frill('container', { key: 'YOUR_SCRIPT_KEY' });
+  window.Frill('container', {
+    key: 'YOUR_SCRIPT_KEY',
+    // Extra configuration here... e.g. user identification/sso/callback
+  });
 </script>
 <!-- End Frill -->
 ```
@@ -85,12 +88,23 @@ const survey = await window.Frill('survey', {
 
 ### Identifying users
 
-Guest users can be identified at any time using the `Frill` API. Calling the `identify` command will identify the user for all active Widgets & Surveys. It's okay to call before they have been created, all new instances will inherit the current user.
+Guest users can be identified during container load, or at any time using the `Frill` API. Calling the `identify` command will identify the user for all active Widgets & Surveys. It's okay to call before they have been created, all new instances will inherit the current user.
 
-The user email must be valid. Note: Identifying a user will not work if you have SSO enabled.
+The only requirement for user identification is that the user email must be valid. Note: Identifying a user will not work if you have SSO enabled.
+
+The simplest way to identify users is during container initialization, just define the user as part of your config.
 
 ```js
-window.Frill('identify', { email: 'email@domain.com', name: 'my user'})
+window.Frill('container', {
+  key: 'YOUR_SCRIPT_KEY',
+  user: { email: 'email@domain.com', name: 'my user'}
+});
+```
+
+If your app has client side authentication, you can identify the user using the `Frill` API when they login:
+
+```js
+window.Frill('identify', { email: 'email@domain.com', name: 'my user' })
 ```
 
 If the user logs outs you should unidentify them:
