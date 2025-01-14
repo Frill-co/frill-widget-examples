@@ -97,14 +97,14 @@ The simplest way to identify users is during container initialization, just defi
 ```js
 window.Frill('container', {
   key: 'YOUR_SCRIPT_KEY',
-  user: { email: 'email@domain.com', name: 'my user'}
+  user: { email: 'email@domain.com', name: 'my user' },
 });
 ```
 
 If your app has client side authentication, you can identify the user using the `Frill` API when they login:
 
 ```js
-window.Frill('identify', { email: 'email@domain.com', name: 'my user' })
+window.Frill('identify', { email: 'email@domain.com', name: 'my user' });
 ```
 
 If the user logs outs you should unidentify them:
@@ -122,6 +122,17 @@ Guest user identification will not work if you have SSO enabled. To identify an 
 ```js
 window.Frill('container', {
   key: 'YOUR_SCRIPT_KEY',
-  ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER'
+  ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER',
+});
+```
+
+### Languages
+
+Widgets and Surveys will use the current browser language by default, but you can override the language by specifying one in your config.
+
+```js
+window.Frill('container', {
+  key: 'YOUR_SCRIPT_KEY',
+  language: 'es',
 });
 ```
