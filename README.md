@@ -23,7 +23,7 @@ We recommend using the Frill Script to automatically load all Widget and Surveys
 <!-- End Frill -->
 ```
 
-Want to load a single Widget or Survey? Check out [this example](./examples/load-widget).
+Want to load a single Widget or Survey? Check out [this example](./examples/load-widget.html).
 
 > [!NOTE]
 > If you are using a JavaScript framework, e.g. React (including NextJS), Vue, Angular, etc. you don't need to do anything specail. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
