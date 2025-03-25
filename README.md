@@ -8,7 +8,7 @@ View [our examples](./examples) to see what's possible.
 
 ## Getting Started
 
-We recommend using the Frill Script to automatically load all Widget and Surveys. Get your Frill Script code from the [Widgets](https://app.frill.co/dashboard/widget) or [Surveys](https://app.frill.co/dashboard/survey) page and place the script before the closing `</body>` tag on your website.
+We recommend using the Frill Script to automatically load all Widgets and Surveys. Get your Frill Script code from the [Widgets](https://app.frill.co/dashboard/widget) or [Surveys](https://app.frill.co/dashboard/survey) page and place the script before the closing `</body>` tag on your website.
 
 
 ```html
@@ -26,7 +26,7 @@ We recommend using the Frill Script to automatically load all Widget and Surveys
 Want to load a single Widget or Survey? Check out [this example](./examples/load-widget.html).
 
 > [!NOTE]
-> If you are using a JavaScript framework, e.g. React (including NextJS), Vue, Angular, etc. you don't need to do anything specail. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
+> If you are using a JavaScript framework, e.g., React (including Next.js), Vue, or Angular, you don't need to do anything special. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
 
 ## Frill API JS
 
@@ -107,7 +107,7 @@ If your app has client side authentication, you can identify the user using the 
 window.Frill('identify', { email: 'email@domain.com', name: 'my user' });
 ```
 
-If the user logs outs you should unidentify them:
+If the user logs out, you should unidentify them:
 
 ```js
 window.Frill('unidentify');
