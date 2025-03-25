@@ -26,21 +26,24 @@
       justify-content: center;
     }
 
-    .notification {
-      background-color: rgb(188, 240, 223);
-      border: 0;
+    button {
+      background-color: #efefef;
       border-radius: 10px;
+      border: 0px;
+      color: black;
       cursor: pointer;
-      font: inherit;
-      padding: 16px 24px;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      position: relative;
     }
   </style>
 </head>
 
 <body>
   <div class="flex">
-    <button type="button" class="frill-container btn">
-      Click here to show the widget
+    <button type='button' class='my-frill-widget'>
+      Open the Frill widget
     </button>
   </div>
   <script>
@@ -48,27 +51,12 @@
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       // If you're using SSO, pass the JWT here:
       // ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER'
-      widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
-        callbacks: {
-          onReady(widget) {
-            // This is called when the Frill Widget is ready to use.
-            // The `widget` object can be used to control the widget.
-
-            // It's possible to identify users for a single widget:
-            widget.identify({
-              email: 'email@domain.com',
-              name: 'my user'
-            })
-            // Users can be unidentify at any time, but calling this on the widget
-            // will only unidentify them for that widget.
-            widget.unidentify()
-          },
-        }
-      }]
+      // If you already know the user, you can identify them when you load the Frill Script
+      user: { email: 'email@domain.com', name: 'my user' },
     })
     // You can call the Frill identify or unidentify methods at any time and it will update
     // every widget. It's okay to call before widgets/surveys have been created, all

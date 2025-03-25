@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frill Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #efefef;
+      border-radius: 10px;
+      border: 0px;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    Please wait. This widget is going to open once it loads...
+    <!--
+      This example widget is using the CSS Selector Launcher and Popover View so we need to have
+      an element so the widget knows where to render.
+    -->
+    <div class="frill-container"></div>
+  </div>
+  <script>
+    // This is the default Frill script to load a container.
+    (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
+    // When you initialize the container you can pass in custom settings for each widget
+    window.Frill('container', {
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
+      widgets: [{
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
+        callbacks: {
+          onReady(widget) {
+            // This is called when the Frill Widget is ready to use.
+
+            // Calling widget.events.on will return an unsubscribe function.
+            const subscriptions = [
+              /**
+               * Fired after the badge count changes
+               */
+              widget.events.on('badgeCount', ({ announcements, count }) => {
+                console.log('new announcements', announcements, count)
+              }),
+              /**
+               * Fired after a boosted announcement notification has been opened
+               */
+              widget.events.on('notificationOpen', () => {
+                console.log('notification opened');
+              }),
+              /**
+               * Fired after a boosted announcement notification has been closed
+               */
+              widget.events.on('notificationClose', () => {
+                console.log('notification closed');
+              }),
+              /**
+               * Fired when the app is ready and announcements have loaded
+               */
+              widget.events.on('ready', (widget) => {
+                console.log('ready', widget)
+              }),
+              /**
+               * Fired after the app has been opened
+               */
+              widget.events.on('open', () => {
+                console.log('opened')
+              }),
+              /**
+               * Fired after the app has been closed
+               */
+              widget.events.on('close', () => {
+                conosle.log('closed')
+              }),
+              /**
+               * Fired when the app is destroyed
+               */
+              widget.events.on('destroy', () => {
+                console.log('destroyed')
+              }),
+              /**
+               * Fired when a user logs in
+               */
+              widget.events.on('login', ({ user }) => {
+                console.log('login', user)
+              }),
+              /**
+               * Fired when a user logs out
+               */
+              widget.events.on('logout', () => {
+                console.log('logout');
+              }),
+            ]
+
+            
+            function unsubscribe() {
+              subscriptions.forEach(cb => cb());
+            }
+          },
+          // All widget events can be subscribed to on initialization
+          onOpen() {
+            console.log('This is called when the widget is opened')
+          },
+          onClose() {
+            console.log('Widget closed')
+          },
+        }
+      }]
+    });
+  </script>
+</body>
+
+</html>

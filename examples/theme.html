@@ -46,7 +46,7 @@
       gap: 8px;
     }
 
-    .btn {
+    button {
       background-color: #efefef;
       border-radius: 10px;
       border: 0px;
@@ -62,13 +62,12 @@
 
 <body>
   <div class="main">
-    <div class="controls">
-      <button type="button" data-theme="light" class="theme-button btn">Light Theme</button>
-      <button type="button" data-theme="dark" class="theme-button btn">Dark Theme</button>
-      <button type="button" data-theme="purple" class="theme-button btn">Purple Theme</button>
-    </div>
-    <button type="button" class="frill-container btn">
-      Click here to show the widget
+    <button type="button" data-theme="light" class="theme-button">Open with light theme</button>
+    <button type="button" data-theme="dark" class="theme-button">Open with dark theme</button>
+    <button type="button" data-theme="purple" class="theme-button">Open with purple theme</button>
+    <button type="button" data-theme="navy" class="theme-button">Open with navy theme</button>
+    <button type='button' class='my-frill-widget'>
+      Open the Frill widget
     </button>
   </div>
   <script>
@@ -77,9 +76,11 @@
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
         callbacks: {
           onReady(widget) {
             // This is called when the Frill Widget is ready to use.
@@ -104,6 +105,9 @@
                     }
                   }
                 })
+
+                // Now open the widget
+                widget.open();
               })
             }
           },

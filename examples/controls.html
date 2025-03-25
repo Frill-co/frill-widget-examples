@@ -46,7 +46,7 @@
       gap: 8px;
     }
 
-    .btn {
+    button {
       background-color: #efefef;
       border-radius: 10px;
       border: 0px;
@@ -63,11 +63,12 @@
 <body>
   <div class="main">
     <div class="controls">
-      <button type="button" data-action="announcements" class="action-button btn">Go to Announcements</button>
-      <button type="button" data-action="create-idea" class="action-button btn">Give Feedback</button>
+      <button type="button" data-action="announcements" class="action-button">Go to Announcements</button>
+      <button type="button" data-action="roadmap" class="action-button">Go to Roadmap</button>
+      <button type="button" data-action="create-idea" class="action-button">Give Feedback</button>
     </div>
-    <button type="button" class="frill-container btn">
-      Click here to show the widget
+    <button type='button' class='my-frill-widget'>
+      Open the Frill widget
     </button>
   </div>
   <script>
@@ -76,9 +77,11 @@
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
         callbacks: {
           onOpen() {
             console.log("OPEN")
@@ -100,9 +103,15 @@
                 switch (action) {
                   case 'announcements':
                     // Navigation to the announcements page
-                    widget.viewSection('announcements')
+                    widget.viewSection('announcements');
                     // Or you could navigate to a specific announcement if you have the slug
                     // widget.viewAnnouncement('my-announcement-slug')
+                    // Then open the widget
+                    widget.open()
+                    break
+                  case 'roadmap':
+                    // Navigation to the roadmap page
+                    widget.viewSection('roadmap');
                     // Then open the widget
                     widget.open()
                     break

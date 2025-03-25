@@ -25,26 +25,37 @@
       align-items: flex-start;
       justify-content: center;
     }
+
+    button {
+      background-color: #efefef;
+      border-radius: 10px;
+      border: 0px;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      position: relative;
+    }
   </style>
 </head>
 
 <body>
   <div class="flex">
-    Please wait. This widget is going to open once it loads...
-    <!--
-      This example widget is using the CSS Selector Launcher and Popover View so we need to have
-      an element so the widget knows where to render.
-    -->
-    <div class="frill-container"></div>
+    <button type='button' class='my-frill-widget'>
+      Open the Frill widget
+    </button>
   </div>
   <script>
     // This is the default Frill script to load a container.
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
         callbacks: {
           onReady(widget) {
             // This is called when the Frill Widget is ready to use.

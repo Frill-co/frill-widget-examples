@@ -26,13 +26,16 @@
       justify-content: center;
     }
 
-    .notification {
-      background-color: rgb(188, 240, 223);
-      border: 0;
+    button {
+      background-color: #efefef;
       border-radius: 10px;
+      border: 0px;
+      color: black;
       cursor: pointer;
-      font: inherit;
-      padding: 16px 24px;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 8px 15px;
+      position: relative;
     }
   </style>
 </head>
@@ -40,12 +43,9 @@
 <body>
   <div class="flex">
     <button type="button" class="notification">...</button>
-    <!--
-      This example widget is using the CSS Selector Launcher and Popover View so we need to have
-      an element so the widget knows where to render. Because we are going to open the widget
-      manually, this element is empty.
-    -->
-    <div class="frill-container"></div>
+    <button type='button' class='my-frill-widget'>
+      Open the Frill widget
+    </button>
   </div>
   <script>
     const notification = document.querySelector('.notification');
@@ -53,9 +53,11 @@
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
         callbacks: {
           onReady(widget) {
             // This is called when the Frill Widget is ready to use.
@@ -66,7 +68,7 @@
             //   - widget.setBadgeCount(2);
 
             // In this example, we are going to add a click event listener to our
-            // notification bubble so it can open the widget.
+            // notification bubble so it can open the widget as well.
             notification.addEventListener('click', (e) => {
               // Stop event propagation
               e.stopPropagation();

@@ -8,10 +8,8 @@ View [our examples](./examples) to see what's possible.
 
 ## Getting Started
 
-All Widgets & Surveys should always be loaded with the Frill Script. Get your Frill Script code from the [Widgets](https://app.frill.co/dashboard/widget) or [Surveys](https://app.frill.co/dashboard/survey) page and place the script before the closing `</body>` tag on your website.
+We recommend using the Frill Script to automatically load all Widget and Surveys. Get your Frill Script code from the [Widgets](https://app.frill.co/dashboard/widget) or [Surveys](https://app.frill.co/dashboard/survey) page and place the script before the closing `</body>` tag on your website.
 
-> [!NOTE]
-> If you are using a JavaScript framework, e.g. React (including NextJS), Vue, Angular, etc. You don't need to do anything special. Load the script tag like you would any other.
 
 ```html
 <!-- Frill (https://frill.co) -->
@@ -24,6 +22,11 @@ All Widgets & Surveys should always be loaded with the Frill Script. Get your Fr
 </script>
 <!-- End Frill -->
 ```
+
+Want to load a single Widget or Survey? Check out [this example](./examples/load-widget).
+
+> [!NOTE]
+> If you are using a JavaScript framework, e.g. React (including NextJS), Vue, Angular, etc. you don't need to do anything specail. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
 
 ## Frill API JS
 
@@ -41,7 +44,7 @@ To set this up, include a custom `widgets` or `surveys` configuration when you l
 
 ```js
 window.Frill('container', {
-  key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+  key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
   surveys: [
     {
       key: 'YOUR_SURVEY_KEY', // <-- Add Survey key here
@@ -69,7 +72,7 @@ window.Frill('container', {
 
 #### Using the `Frill` API
 
-It's possible to directly load (or retrieve) a single Frill Widget or Survey. If it's already loaded, the function will simply return the existing instance, making it safe to call multiple times. Using the API to load will ignore all targeting rules.
+It's possible to directly access (or load) a single Frill Widget or Survey. If it's already loaded, the function will simply return the existing instance, making it safe to call multiple times. Using the API to load will ignore all targeting rules (e.g. URL matching).
 
 ```js
 const widget = await window.Frill('widget', {
@@ -82,9 +85,6 @@ const survey = await window.Frill('survey', {
 
 // You can now control the widget, e.g. widget.open();
 ```
-
-> [!NOTE]
-> This is the recommended approach if you are using a JS framework. Please see our examples for [React](./react), [Vue](./vue) & [Angular](./angular).
 
 ### Identifying users
 
@@ -136,3 +136,7 @@ window.Frill('container', {
   language: 'es',
 });
 ```
+
+### Debugging
+
+Not sure why a Widget or Survey isn't showing? Use `Frill('help')` to get a summary of all Frill instances.

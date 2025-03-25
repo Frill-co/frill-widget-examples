@@ -1,13 +1,21 @@
-# React Frill Widget Example
+# React Frill SDK Example
+
+This example shows how to integrate the Frill SDK into a React application.
+
+Check out the [useFrillWidget](./src/use-frill-widget.ts) hook for the recommended way to interact with a Widget.
+
+> [!NOTE]
+> Make sure you have included the Frill Script in your application first, see [index.html](./index.html).
+> If you only need to load the Widget and don't need to interact with it then you may not need to do anything else. The script will automatically attach and detach Widgets and Surveys. This example is for more advanced cases where you need to control, or listen to, the Widget.
 
 ## Project setup
 
 ```bash
-yarn install
+npm install
 ```
 
 ### Run the example
 
 ```bash
-yarn start
+npm run dev
 ```

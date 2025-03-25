@@ -46,7 +46,7 @@
       gap: 8px;
     }
 
-    .btn {
+    button {
       background-color: #efefef;
       border-radius: 10px;
       border: 0px;
@@ -62,8 +62,11 @@
 
 <body>
   <div class="main">
-    <button type="button" class="frill-sidebar btn">
-      Click here to show the widget as a sidebar
+    <button type="button" class="frill-modal">
+      Click here to show the widget as a modal
+    </button>
+    <button type='button' class='my-frill-widget'>
+      This will NOT open the widget
     </button>
   </div>
   <script>
@@ -71,20 +74,22 @@
     (function(t,r){function s(){var a=r.getElementsByTagName("script")[0],e=r.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://widget.frill.co/v2/container.js",a.parentNode.insertBefore(e,a)}if(!t.Frill){var f=0,i={};t.Frill=function(e,o){var n,l=f++,c=new Promise(function(v,d){i[l]={params:[e,o],resolve(p){n=p,v(p)},reject:d}});return c.destroy=function(){delete i[l],n&&n.destroy()},c},t.Frill.q=i}r.readyState==="complete"||r.readyState==="interactive"?s():r.addEventListener("DOMContentLoaded",s)})(window,document);
     // When you initialize the container you can pass in custom settings for each widget
     window.Frill('container', {
-      key: 'YOUR_SCRIPT_KEY', // <-- Add Script key here
+      // Put your Frill Script key here
+      key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       widgets: [{
-        key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
+        // Put your Widget key here
+        key: '639e39ad-86e4-459b-b8fd-867369329c59',
         // Pass a custom settings object to override the default values
         settings: {
           launcher: {
             // Select a new launcher
             type: 'selector',
-            selector: '.frill-sidebar'
+            selector: '.frill-modal'
           },
           view: {
-            // Change the view type to `sidebar`
-            type: 'sidebar'
-            // Pass additional sidebar settings here...
+            // Change the view type to `modal`
+            type: 'modal'
+            // Pass additional modal settings here...
           }
         },
       }]
