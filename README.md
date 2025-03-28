@@ -105,6 +105,8 @@ If your app has client side authentication, you can identify the user using the 
 
 ```js
 window.Frill('identify', { email: 'email@domain.com', name: 'my user' });
+// It's possible to identify SSO users as well
+window.Frill('identify', { ssoToken: 'SSO_JWT_FROM_SERVER' })
 ```
 
 If the user logs out, you should unidentify them:
@@ -122,7 +124,7 @@ Guest user identification will not work if you have SSO enabled. To identify an 
 ```js
 window.Frill('container', {
   key: 'YOUR_SCRIPT_KEY',
-  ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER',
+  ssoToken: 'SSO_JWT_FROM_SERVER',
 });
 ```
 

@@ -54,7 +54,7 @@
       // Put your Frill Script key here
       key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
       // If you're using SSO, pass the JWT here:
-      // ssoToken: 'SSO_FRILL_TOKEN_FROM_SERVER'
+      // ssoToken: 'SSO_JWT_FROM_SERVER'
       // If you already know the user, you can identify them when you load the Frill Script
       user: { email: 'email@domain.com', name: 'my user' },
     })
@@ -62,7 +62,9 @@
     // every widget. It's okay to call before widgets/surveys have been created, all
     // widgets will inherit the current user.
     // When identifying a user, the name and (a valid) email are required.
-    window.Frill('identify', { email: 'email@domain.com', name: 'my user'})
+    window.Frill('identify', { email: 'email@domain.com', name: 'my user' })
+    // You can also pass an SSO JWT here:
+    // window.Frill('identify', { ssoToken: 'SSO_JWT_FROM_SERVER' })
     // You can unidentify the user (globally) at any time:
     window.Frill('unidentify');
   </script>
