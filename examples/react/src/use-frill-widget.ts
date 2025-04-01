@@ -13,7 +13,6 @@ export function useFrillWidget() {
       callbacks: {
         onReady(widget) {
           widgetRef.current = widget;
-
           // You can subscribe to widget events like so, don't forget to unsubscribe though.
           // const unsubscribe = widgetRef.current.events.on('badgeCount', console.log)
         },

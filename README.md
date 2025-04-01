@@ -23,18 +23,18 @@ We recommend using the Frill Script to automatically load all Widgets and Survey
 <!-- End Frill -->
 ```
 
-Want to load a single Widget or Survey? Check out [this example](./examples/load-widget.html).
+Want to load a single Widget or Survey? Check out the [conditional loading](#conditional-widgets--surveys) guide.
 
 > [!NOTE]
 > If you are using a JavaScript framework, e.g., React (including Next.js), Vue, or Angular, you don't need to do anything special. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
 
-## Frill API JS
+## Frill JS API
 
 The Frill API allows you to access, customize, and control any Widget or Survey loaded in your script. Using the Frill API is simple once you have a reference to a Widget, or Survey. To do this, you first need to know the **Key**, which you can find in your Frill dashboard or on the edit screen.
 
 Once you have the **Key**, there are two ways to get access to the instance.
 
-#### Using `onReady` callback
+#### Using container `onReady` callback
 
 The easiest way to access a Widget or Survey is by providing an `onReady` callback in your script configuration. This callback will run once when ready and will receive the `widget` (or `survey`) instance.
 
@@ -85,6 +85,22 @@ const survey = await window.Frill('survey', {
 
 // You can now control the widget, e.g. widget.open();
 ```
+
+### Conditional Widgets & Surveys
+
+By default, the Frill('container') call automatically loads all Widgets and Surveys. To disable this, use the `autoLoad` option in the configuration. This is useful when you need to load a Widget or Survey conditionally in your application,
+
+```js
+window.Frill('container', {
+  key: 'YOUR_SCRIPT_KEY',
+  // Pass false to disable automatic Widget and Survey loading
+  autoLoad: false, // Also accepts: 'widgets' or 'surveys'
+});
+```
+
+Check out this [this example](./examples/auto-load.html)
+
+> Remember, you can customize URL and audience targeting—including specific segments—for each Survey and Widget in the settings.
 
 ### Identifying users
 
