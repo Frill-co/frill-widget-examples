@@ -113,9 +113,19 @@ The simplest way to identify users is during container initialization, just defi
 ```js
 window.Frill('container', {
   key: 'YOUR_SCRIPT_KEY',
-  user: { email: 'email@domain.com', name: 'my user' },
+  user: {
+    email: 'email@domain.com',
+    name: 'my user',
+    // You can also pass custom variables (attributes and companies) when identifying users
+    // attributes: { mrr: 100 },
+    // companies : [{ id: 'frill', name: "Frill.co" }] }
+  },
 });
 ```
+
+> [!NOTE]
+> To pass custom user attributes you must turn on the "Allow custom attributes when identifying users via JS" option from the Frill Script setup identification settings. Using SSO? [Check out this guide](https://help.frill.co/article/204-adding-custom-user-attributes-for-segmentation).
+
 
 If your app has client side authentication, you can identify the user using the `Frill` API when they login:
 
