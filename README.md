@@ -124,7 +124,7 @@ window.Frill('container', {
 ```
 
 > [!NOTE]
-> To pass custom user attributes you must turn on the "Allow custom attributes when identifying users via JS" option from the Frill Script setup identification settings. Using SSO? [Check out this guide](https://help.frill.co/article/204-adding-custom-user-attributes-for-segmentation).
+> To pass custom user attributes you must turn on the "Allow custom attributes when identifying users with JS" option from the Frill Script setup identification settings. Using SSO? [Check out this guide](https://help.frill.co/article/204-adding-custom-user-attributes-for-segmentation).
 
 
 If your app has client side authentication, you can identify the user using the `Frill` API when they login:
