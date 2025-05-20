@@ -66,6 +66,7 @@
       <button type="button" data-action="announcements" class="action-button">Go to Announcements</button>
       <button type="button" data-action="roadmap" class="action-button">Go to Roadmap</button>
       <button type="button" data-action="create-idea" class="action-button">Give Feedback</button>
+      <button type="button" data-action="view-idea" class="action-button">View Idea</button>
     </div>
     <button type='button' class='my-frill-widget'>
       Open the Frill widget
@@ -112,6 +113,17 @@
                   case 'roadmap':
                     // Navigation to the roadmap page
                     widget.viewSection('roadmap');
+                    // Then open the widget
+                    widget.open()
+                    break
+                  case 'view-idea':
+                    // Open an idea
+                    const ideaSlug = 'dark-mode-user-choice'
+                    // Note: You can pass a section to open the idea in a particular view
+                    // widget.viewIdea(ideaSlug, 'ideas');
+                    // widget.viewIdea(ideaSlug, 'roadmap');
+                    // But it's optional, so it's safe to omit
+                    widget.viewIdea(ideaSlug);
                     // Then open the widget
                     widget.open()
                     break
