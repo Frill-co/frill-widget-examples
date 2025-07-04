@@ -11,7 +11,11 @@ export default function Home() {
   return (
     <div className="app">
       <p>Next & Frill are up and running!</p>
-      <button type="button" className="my-frill-widget">
+      <button
+        type="button"
+        onClick={() => {
+          widgetRef.current?.open();
+        }}>
         Open the Frill widget
       </button>
       <button

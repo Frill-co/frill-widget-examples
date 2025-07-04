@@ -3,7 +3,10 @@
 import React from "react";
 import type { FrillWidget, FrillWidgetMethods } from "./frill-types";
 
-export function useFrillWidget(method: FrillWidgetMethods, key: string) {
+export function useFrillWidget(
+  method: FrillWidgetMethods,
+  key: string
+): React.RefObject<FrillWidget | null> {
   const widgetRef = React.useRef<FrillWidget>(null);
 
   React.useEffect(() => {

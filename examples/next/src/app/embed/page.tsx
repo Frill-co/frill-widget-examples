@@ -3,12 +3,16 @@
 import React from "react";
 
 function Embed() {
+  React.useEffect(() => {
+    window.Frill("widget", { key: "widget_stage_MsKZBt_01yXv5" }); // Replace with your widget key
+  }, []);
+
   return (
-    <>
+    <div>
       <div
-        data-frill-widget="44515b15-5b5a-4f56-b54c-a24b5487bd43"
+        data-frill-widget="widget_stage_MsKZBt_01yXv5" // Replace with your widget key
         style={{ width: "340px", height: "460px" }}></div>
-    </>
+    </div>
   );
 }
 
