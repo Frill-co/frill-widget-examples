@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, -apple-system, segoe ui, roboto, ubuntu, helvetica,
+    cantarell, noto sans, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: white;
+  height: 2.5rem;
+  background-color: rgb(239, 86, 124);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 90, 131);
+}
