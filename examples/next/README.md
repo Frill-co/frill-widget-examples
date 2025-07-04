@@ -8,10 +8,10 @@ Check out the [useFrillWidget](./src/use-frill-widget.ts) hook for the recommend
 > Make sure you have included the Frill Script in your application first, see [index.html](./index.html).
 > Place your script in a Next.js Script tag with `strategy="beforeInteractive"`.
 
- If you only need to load the Widget and don't need to interact with it then you may not need to do anything else. The script will automatically attach and detach Widgets and Surveys. This example is for more advanced cases where you need to control, or listen to, the Widget.
+If you only need to load the Widget and don't need to interact with it then you may not need to do anything else. The script will automatically attach and detach Widgets and Surveys. This example is for more advanced cases where you need to control, or listen to, the Widget.
 
->[!Caution]
->If you are using `autoLoad:false` or `autoLoad: 'surveys'` embedded widgets will fail to load
+> [!Caution]
+> If you are using `autoLoad:false` or `autoLoad: 'surveys'` embedded widgets will fail to load
 
 ## Project setup
 

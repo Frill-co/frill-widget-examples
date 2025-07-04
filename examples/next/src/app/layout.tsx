@@ -16,6 +16,7 @@ export default function RootLayout({
     window.Frill('container', {
       // Put your Frill Script key here
       key: 'a809b4ac-5976-4444-8684-15f7a3a20b4c',
+      autoLoad:false,
       // Identify your users (optional)
       // user: { email: 'email@domain.com', name: 'my user'}
     })`}</Script>
