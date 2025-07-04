@@ -6,7 +6,7 @@
 declare global {
   interface Window {
     Frill(
-      method: "widget",
+      method: FrillWidgetMethods,
       config: FrillWidgetConfig
     ): CancelablePromise<FrillWidget>;
   }
@@ -25,6 +25,8 @@ export interface FrillWidget {
     ): Unsubscribe;
   };
 }
+
+export type FrillWidgetMethods = "widget" | "survey";
 
 interface FrillWidgetEvents {
   ready: void;

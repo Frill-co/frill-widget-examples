@@ -1,17 +1,16 @@
 "use client";
 
 import React from "react";
-import type { FrillWidget } from "./frill-types";
+import type { FrillWidget, FrillWidgetMethods } from "./frill-types";
 
-export function useFrillWidget() {
+export function useFrillWidget(method: FrillWidgetMethods, key: string) {
   const widgetRef = React.useRef<FrillWidget>(null);
 
   React.useEffect(() => {
     // This is an async function, but we're not going to use the resolved result directly,
     // instead we assign the promise to a variable so we can destroy it in the hook cleanup.
-    const widget = window.Frill("widget", {
-      // Put your Widget key here
-      key: "639e39ad-86e4-459b-b8fd-867369329c59",
+    const widget = window.Frill(method, {
+      key: key,
       callbacks: {
         onReady(widget) {
           widgetRef.current = widget;

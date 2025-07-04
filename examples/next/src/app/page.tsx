@@ -3,7 +3,10 @@
 import { useFrillWidget } from "./use-frill-widget";
 
 export default function Home() {
-  const widgetRef = useFrillWidget();
+  const widgetRef = useFrillWidget(
+    "widget", // Use "survey" if you want to use the survey widget
+    "639e39ad-86e4-459b-b8fd-867369329c59" // Put your Widget key here
+  );
 
   return (
     <div className="app">
