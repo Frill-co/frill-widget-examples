@@ -23,7 +23,7 @@ We recommend using the Frill Script to automatically load all Widgets and Survey
 <!-- End Frill -->
 ```
 
-Want to load a single Widget or Survey? Check out the [conditional loading](#conditional-widgets--surveys) guide.
+Want to load a single Widget or Survey? Check out the [manual loading](#manually-loading-widgets--surveys) guide.
 
 > [!NOTE]
 > If you are using a JavaScript framework, e.g., React (including Next.js), Vue, or Angular, you don't need to do anything special. Load the script tag like you would any other. Frill will automatically create and remove Widgets & Surveys. If you need more fine-tuned control, check out [our examples](./examples/react) for best practices.
@@ -74,6 +74,8 @@ window.Frill('container', {
 
 It's possible to directly access (or load) a single Frill Widget or Survey. If it's already loaded, the function will simply return the existing instance, making it safe to call multiple times. Using the API to load will ignore all targeting rules (e.g. URL matching).
 
+This approach is useful if your `Frill('container')` call is not where you need to access the Widget or Survey.
+
 ```js
 const widget = await window.Frill('widget', {
   key: 'YOUR_WIDGET_KEY', // <-- Add Widget key here
@@ -86,11 +88,12 @@ const survey = await window.Frill('survey', {
 // You can now control the widget, e.g. widget.open();
 ```
 
-### Conditional Widgets & Surveys
+### Manually loading Widgets & Surveys
 
-By default, the Frill('container') call automatically loads all Widgets and Surveys. To disable this, use the `autoLoad` option in the configuration. This is useful when you need to load a Widget or Survey conditionally in your application,
+If you want to manually load Widgets and Surveys you still need to call `Frill('container')` as early as possible, but use the `autoLoad` option in the configuration to disable automatic loading. This is useful when you need to load a Widget or Survey conditionally in your application,
 
 ```js
+// You should always load the container so the Widgets and Surveys are (idle) ready to go
 window.Frill('container', {
   key: 'YOUR_SCRIPT_KEY',
   // Pass false to disable automatic Widget and Survey loading
@@ -126,13 +129,12 @@ window.Frill('container', {
 > [!NOTE]
 > To pass custom user attributes you must turn on the "Allow custom attributes when identifying users with JS" option from the Frill Script setup identification settings. Using SSO? [Check out this guide](https://help.frill.co/article/204-adding-custom-user-attributes-for-segmentation).
 
-
 If your app has client side authentication, you can identify the user using the `Frill` API when they login:
 
 ```js
 window.Frill('identify', { email: 'email@domain.com', name: 'my user' });
 // It's possible to identify SSO users as well
-window.Frill('identify', { ssoToken: 'SSO_JWT_FROM_SERVER' })
+window.Frill('identify', { ssoToken: 'SSO_JWT_FROM_SERVER' });
 ```
 
 If the user logs out, you should unidentify them:
