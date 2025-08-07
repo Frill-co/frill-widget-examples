@@ -132,7 +132,13 @@ window.Frill('container', {
 If your app has client side authentication, you can identify the user using the `Frill` API when they login:
 
 ```js
-window.Frill('identify', { email: 'email@domain.com', name: 'my user' });
+window.Frill('identify', {
+  email: 'email@domain.com',
+  name: 'my user'
+  // You can pass custom variables here too...
+  // attributes: { mrr: 100 },
+  // companies : [{ id: 'frill', name: "Frill.co" }] }
+});
 // It's possible to identify SSO users as well
 window.Frill('identify', { ssoToken: 'SSO_JWT_FROM_SERVER' });
 ```
