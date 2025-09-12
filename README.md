@@ -149,7 +149,7 @@ If the user logs out, you should unidentify them:
 window.Frill('unidentify');
 ```
 
-Using iframes? Check out [our simple example](./examples/iframe-identify-user.html) or [SSO example](./examples/iframe-identify-sso.html) to see how to do it.
+Using iframes? You can pass the user details as a query parameter. Check out [our simple example](./examples/iframe-identify-user.html) or [SSO example](./examples/iframe-identify-sso.html) to see how to do it.
 
 #### SSO
 
