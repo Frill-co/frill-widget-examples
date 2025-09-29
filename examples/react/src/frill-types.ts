@@ -1,6 +1,7 @@
 /**
  * NOTE: These types are only partially defined, there are more options available.
  * Please see other examples for what's available, or reach out if you need more refined types.
+ * https://developers.frill.co/frill-script/widgets/controlling-the-widget
  */
 
 declare global {
@@ -29,7 +30,7 @@ interface FrillWidgetEvents {
   badgeCount: { announcements: Object[]; count: number };
 }
 
-type Unsubscribe = () => {};
+type Unsubscribe = () => void
 
 interface FrillWidgetConfig {
   key: string;
