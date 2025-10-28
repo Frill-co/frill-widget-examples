@@ -4,7 +4,7 @@ Welcome to the Frill Widget & Survey examples repository.
 
 This repository contains advanced usage examples for Widgets & Surveys, including user identification, SSO, iframes, and external control.
 
-View [our examples](./examples) to see what's possible.
+View [our examples](./examplexamples/iframe-identify-sso.htmles) to see what's possible.
 
 ## Getting Started
 
