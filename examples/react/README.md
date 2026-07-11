@@ -1,12 +1,19 @@
-# React Frill SDK Example
+# React Frill Example
 
-This example shows how to integrate the Frill SDK into a React application.
+This example shows how to integrate Frill into a React (Vite) application using the
+[`@frillco/script`](https://www.npmjs.com/package/@frillco/script) package.
 
-Check out the [useFrillWidget](./src/use-frill-widget.ts) hook for the recommended way to interact with a Widget.
+- [`src/index.tsx`](./src/index.tsx) — loads your container with `useContainer` and controls a
+  widget with `useWidget`.
+
+The package loads the Frill script for you on first use, so there's no `<script>` tag to add. If you
+only need Frill to load the widgets and surveys configured in your dashboard (without controlling
+them from code), calling `useContainer({ key })` is all you need — the hooks are for more advanced
+cases where you want to open, navigate or listen to a widget.
 
 > [!NOTE]
-> Make sure you have included the Frill Script in your application first, see [index.html](./index.html).
-> If you only need to load the Widget and don't need to interact with it then you may not need to do anything else. The script will automatically attach and detach Widgets and Surveys. This example is for more advanced cases where you need to control, or listen to, the Widget.
+> `useWidget` returns `null` until the widget is ready, then re-renders with the instance — so
+> `widget?.open()` is safe to call before it loads.
 
 ## Project setup
 
@@ -19,3 +26,7 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Learn more
+
+See the [developer docs](https://developers.frill.co/frill-script) for the full API.

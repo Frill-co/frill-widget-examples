@@ -1,5 +1,9 @@
 import ReactDOM from 'react-dom/client';
-import { useFrillWidget } from './use-frill-widget';
+import { useContainer, useWidget } from '@frillco/script/react';
+
+// Put your keys here (find them in your Frill dashboard).
+const CONTAINER_KEY = 'a809b4ac-5976-4444-8684-15f7a3a20b4c';
+const WIDGET_KEY = '639e39ad-86e4-459b-b8fd-867369329c59';
 
 const rootNode = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(rootNode);
@@ -7,19 +11,25 @@ const root = ReactDOM.createRoot(rootNode);
 root.render(<App />);
 
 function App() {
-  const widgetRef = useFrillWidget();
+  // Loads the widgets, surveys and boosted announcements configured in your
+  // Frill dashboard. Optionally identify the current user, e.g.
+  // useContainer({ key: CONTAINER_KEY, user: { email, name } });
+  useContainer({ key: CONTAINER_KEY });
+
+  // A controllable widget instance — `null` until it's ready, then re-renders.
+  const widget = useWidget({ key: WIDGET_KEY });
 
   return (
     <div className='app'>
       <p>React & Frill are up and running!</p>
-      <button type='button' className='my-frill-widget'>
+      <button type='button' onClick={() => widget?.open()}>
         Open the Frill widget
       </button>
       <button
         type='button'
         onClick={() => {
-          widgetRef.current?.viewSection('ideas');
-          widgetRef.current?.open();
+          widget?.viewSection('ideas');
+          widget?.open();
         }}
       >
         View Ideas
@@ -27,8 +37,8 @@ function App() {
       <button
         type='button'
         onClick={() => {
-          widgetRef.current?.viewSection('announcements');
-          widgetRef.current?.open();
+          widget?.viewSection('announcements');
+          widget?.open();
         }}
       >
         View Announcements
@@ -36,8 +46,8 @@ function App() {
       <button
         type='button'
         onClick={() => {
-          widgetRef.current?.viewSection('roadmap');
-          widgetRef.current?.open();
+          widget?.viewSection('roadmap');
+          widget?.open();
         }}
       >
         View Roadmap

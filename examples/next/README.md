@@ -1,14 +1,21 @@
-# Next Frill SDK Example
+# Next.js Frill Example
 
-This example shows how to integrate the Frill SDK into a Next application.
+This example shows how to integrate Frill into a Next.js application using the
+[`@frillco/script`](https://www.npmjs.com/package/@frillco/script) package.
 
-Check out the [useFrillWidget](./src/use-frill-widget.ts) hook for the recommended way to interact with a Widget.
+- [`src/app/layout.tsx`](./src/app/layout.tsx) — renders `<FrillScript>` once to load your
+  container before hydration. Pass `next/script` via `as` to control the load strategy.
+- [`src/app/page.tsx`](./src/app/page.tsx) — controls a widget with the `useWidget` hook.
+- [`src/app/embed/page.tsx`](./src/app/embed/page.tsx) — embeds a widget inline with
+  `<FrillWidgetEmbed>`.
+
+If you only need Frill to load the widgets and surveys configured in your dashboard (without
+controlling them from code), rendering `<FrillScript container={{ key }} />` is all you need — the
+hooks are for more advanced cases where you want to open, navigate or listen to a widget.
 
 > [!NOTE]
-> Make sure you have included the Frill Script in your application first, see [index.html](./index.html).
-> Place your script in a Next.js Script tag with `strategy="beforeInteractive"`.
-
-If you only need to load the Widget and don't need to interact with it then you may not need to do anything else. The script will automatically attach and detach Widgets and Surveys. This example is for more advanced cases where you need to control, or listen to, the Widget.
+> `useWidget` returns `null` until the widget is ready, then re-renders with the instance — so
+> `widget?.open()` is safe to call before it loads.
 
 ## Project setup
 
@@ -21,3 +28,7 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Learn more
+
+See the [developer docs](https://developers.frill.co/frill-script) for the full API.
